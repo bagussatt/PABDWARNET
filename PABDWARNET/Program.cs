@@ -45,7 +45,8 @@ namespace PABD3003
                                         Console.WriteLine("1. Melihat Seluruh Data");
                                         Console.WriteLine("2. Menambahkan Data");
                                         Console.WriteLine("3. Ubah data");
-                                        Console.WriteLine("");
+                                        Console.WriteLine("4. hapus data");
+
                                         Console.WriteLine("3. Keluar");
                                         Console.WriteLine("\n Masukan Pilihan (1-3): ");
                                         char ch = Convert.ToChar(Console.ReadLine());
