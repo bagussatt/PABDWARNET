@@ -46,8 +46,8 @@ namespace PABD3003
                                         Console.WriteLine("2. Menambahkan Data");
                                         Console.WriteLine("3. Ubah data");
                                         Console.WriteLine("4. hapus data");
-
-                                        Console.WriteLine("3. Keluar");
+                                        Console.WriteLine("5. Cari data");    
+                                        Console.WriteLine("6. Keluar");
                                         Console.WriteLine("\n Masukan Pilihan (1-3): ");
                                         char ch = Convert.ToChar(Console.ReadLine());
                                         switch (ch)
@@ -87,7 +87,14 @@ namespace PABD3003
                                                     }
                                                 }
                                                 break;
-                                            case '3':
+                                            case '4':
+                                                {
+                                                    Console.Clear();
+                                                    Console.WriteLine("DATA MAHASISWA\n");
+                                                    Console.WriteLine();
+                                                    pr.hapus(conn);
+                                                }
+                                            case '6':
                                                 conn.Close();
                                                 return;
                                             default:
@@ -124,6 +131,22 @@ namespace PABD3003
         public void baca(SqlConnection con)
         {
             SqlDataAdapter cmd = new SqlDataAdapter("Select * From Billing", con);
+            DataSet ds = new DataSet();
+            cmd.Fill(ds, "Mahasiswa");
+            DataTable dt = ds.Tables["mahasiswa"];
+
+            foreach (DataRow row in dt.Rows)
+            {
+                foreach (DataColumn col in dt.Columns)
+                {
+                    Console.WriteLine(row[col]);
+                }
+                Console.Write("\n");
+            }
+        }
+        public void hapus(SqlConnection con)
+        {
+            SqlDataAdapter cmd = new SqlDataAdapter("delete from Billing where Id_Billing='1000000002", con);
             DataSet ds = new DataSet();
             cmd.Fill(ds, "Mahasiswa");
             DataTable dt = ds.Tables["mahasiswa"];
