@@ -4,7 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Data.SqlTypes;
 
-namespace PABD3003
+namespace PABDWAWRNET
 {
     internal class Program
     {
@@ -48,7 +48,7 @@ namespace PABD3003
                                         Console.WriteLine("4. hapus data");
                                         Console.WriteLine("5. Cari data");    
                                         Console.WriteLine("6. Keluar");
-                                        Console.WriteLine("\n Masukan Pilihan (1-3): ");
+                                        Console.WriteLine("\n Masukan Pilihan (1-6): ");
                                         char ch = Convert.ToChar(Console.ReadLine());
                                         switch (ch)
                                         {
@@ -94,6 +94,7 @@ namespace PABD3003
                                                     Console.WriteLine();
                                                     pr.hapus(conn);
                                                 }
+                                                break;
                                             case '6':
                                                 conn.Close();
                                                 return;
